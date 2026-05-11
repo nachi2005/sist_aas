@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container mt-4">
+
+    <h2>Update Student</h2>
+
+    <form method="POST">
+
+        <input type="text"
+               name="name"
+               class="form-control mb-2"
+               value="{{ student[1] }}"
+               required>
+
+        <input type="text"
+               name="roll_no"
+               class="form-control mb-2"
+               value="{{ student[2] }}"
+               required>
+
+        <input type="text"
+               name="phone"
+               class="form-control mb-2"
+               value="{{ student[3] }}"
+               required>
+
+        <button class="btn btn-primary">
+            Update Student
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html># ---------------- UPDATE STUDENT ----------------
+@app.route("/update/<int:id>", methods=["GET", "POST"])
+def update(id):
+
+    conn = sqlite3.connect("database.db")
+    c = conn.cursor()
+
+    # FORM SUBMIT
+    if request.method == "POST":
+
+        name = request.form["name"]
+        roll_no = request.form["roll_no"]
+        phone = request.form["phone"]
+
+        c.execute("""
+            UPDATE students
+            SET name=?, roll_no=?, phone=?
+            WHERE id=?
+        """, (name, roll_no, phone, id))
+
+        conn.commit()
+        conn.close()
+
+        return redirect("/manage_pass")
+
+    # OLD DATA FETCH
+    c.execute("SELECT * FROM students WHERE id=?", (id,))
+    student = c.fetchone()
+
+    conn.close()
+
+    return render_template("update.html", student=student)

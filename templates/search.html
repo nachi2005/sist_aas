@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Student</title>
+</head>
+<body>
+
+    <h1>Search Student</h1>
+
+    <form method="POST">
+
+        <input type="text" name="roll_no" placeholder="Enter Roll No">
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    {% if student %}
+
+        <h2>Student Found</h2>
+
+        <p>ID: {{ student[0] }}</p>
+        <p>Name: {{ student[1] }}</p>
+        <p>Roll No: {{ student[2] }}</p>
+        <p>Phone: {{ student[3] }}</p>
+
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Transport System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #111;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: #00bcd4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #1e90ff, #00bcd4);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+        }
+
+        .card {
+            width: 25%;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .green { background: #2e7d32; }
+        .blue { background: #0288d1; }
+        .yellow { background: #fbc02d; color: black; }
+
+        .card button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/home">Home</a>
+    <a href="#">About</a>
+    <a href="/login">Login</a>
+    <a href="#">Contact</a>
+    <a href="/feedback">Feedback</a>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Welcome to SIST</h1>
+    <p>Secure and Efficient Student Transport Access</p>
+    <button class="btn">Face Detection</button>
+</div>
+
+<!-- About -->
+<div class="about">
+    <h2>About the System</h2>
+    <p>
+        This system ensures safety and efficiency in college transportation 
+        through automated student identification and tracking.
+    </p>
+</div>
+
+<!-- Cards -->
+<div class="cards">
+    <div class="card green">
+        <h3>Track Bus</h3>
+        <p>Monitor real-time bus locations.</p>
+        <button>View</button>
+    </div>
+
+    <div class="card blue">
+        <h3>Student Logs</h3>
+        <p>View student boarding history.</p>
+        <button onclick="window.location.href='/dashboard'">View</button>
+    </div>
+
+    <div class="card yellow">
+        <h3>Manage Students</h3>
+        <p>Add or remove student details.</p>
+        <button onclick="window.location.href='/login'">Manage</button>
+    </div>
+</div>
+
+</body>
+</html>
